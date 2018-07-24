@@ -30,3 +30,6 @@
 /node_modules
 yarn-debug.log*
 .yarn-integrity
+
+# so that profile photos do not get sent to github during development
+/public/uploads
