@@ -5,7 +5,7 @@ class CuisinesIndexContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cuisines_array: []
+      cuisinesArray: []
     };
   }
 
@@ -23,14 +23,14 @@ class CuisinesIndexContainer extends Component {
       .then(response => response.json())
       .then(body => {
         this.setState({
-          cuisines_array: body.cuisines
+          cuisinesArray: body.cuisines
         });
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
     }
 
   render() {
-    let cuisines = this.state.cuisines_array.map( cuisine => {
+    let cuisines = this.state.cuisinesArray.map( cuisine => {
       return (
         <CuisineTile
           key={cuisine.id}

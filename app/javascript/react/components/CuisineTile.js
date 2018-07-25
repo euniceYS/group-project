@@ -4,9 +4,6 @@ import { Link } from 'react-router';
 class CuisineTile extends Component{
   constructor(props) {
     super(props);
-    this.state = {
-
-    };
   }
 
   render() {

@@ -5,9 +5,6 @@ import BackButton from './BackButton';
 class NavBar extends Component{
   constructor(props){
     super(props);
-    this.state={
-
-    };
   }
 
   render(){

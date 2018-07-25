@@ -18,6 +18,7 @@ cuisine_data = [
   {name: 'Mediterranean'}
 ]
 
+
 cuisine_data.each do |cuisine|
   Cuisine.create(cuisine)
 end
