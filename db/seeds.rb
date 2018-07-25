@@ -5,19 +5,3 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-cuisine_data = [
-  {name: 'Chinese'},
-  {name: 'Mexican'},
-  {name: 'Italian'},
-  {name: 'Japanese'},
-  {name: 'Greek'},
-  {name: 'French'},
-  {name: 'Thai'},
-  {name: 'Spanish'},
-  {name: 'Indian'},
-  {name: 'Mediterranean'}
-]
-
-cuisine_data.each do |cuisine|
-  Cuisine.create(cuisine)
-end

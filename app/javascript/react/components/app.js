@@ -1,18 +1,7 @@
-import React, { Component } from 'react';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
-import CuisinesIndexContainer from '../containers/CuisinesIndexContainer';
-import NavBar from './NavBar';
+import React from 'react'
 
-const App = props => {
+export const App = (props) => {
+  return (<h1>Make It So React</h1>)
+}
 
-    return (
-      <Router history={browserHistory}>
-        <Route path='/' component={NavBar} >
-          <IndexRoute component={CuisinesIndexContainer} />
-        </Route>
-      </Router>
-
-    );
-  };
-
-export default App;
+export default App
