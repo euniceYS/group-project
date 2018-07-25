@@ -63,4 +63,6 @@ gem 'webpacker', '~> 3.3'
 #added by developers to support CarrierWave
 gem 'carrierwave'
 #added by developers to support S3 file uploads
-gem 'fog-aws'
+gem 'fog'
+# added by developers to support MiniMagick
+gem 'mini_magick'
