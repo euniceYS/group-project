@@ -7,4 +7,12 @@ Rails.application.routes.draw do
   end
 
   resources :profiles, only: [:show]
+
+  namespace :api do
+    namespace :v1 do
+      resources :cuisines, only: [:index]
+    end
+  end
+
+
 end
