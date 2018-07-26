@@ -65,4 +65,6 @@ gem "active_model_serializers"
 #added by developers to support CarrierWave
 gem 'carrierwave'
 #added by developers to support S3 file uploads
-gem 'fog-aws'
+gem 'fog'
+# added by developers to support MiniMagick
+gem 'mini_magick'

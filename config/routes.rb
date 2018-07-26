@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   resources :profiles, only: [:show]
 
 
-
+ resources :restaurants do
+   resources :reviews, only: [:new]
+ end
   namespace :api do
     namespace :v1 do
       resources :cuisines, only: [:index]
