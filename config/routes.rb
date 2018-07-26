@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :cuisines, only: [:index] do
-    resources :restaurants, only: [:show]
+    resources :restaurants, only: [:show, :create, :new]
   end
+
+
 
   namespace :api do
     namespace :v1 do
