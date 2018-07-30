@@ -28,27 +28,34 @@ module.exports = function(config) {
     },
 
     // webpack configuration used by karma-webpack
-    webpack: {
-      // generate sourcemaps
-      devtool: 'eval-source-map',
-      module: {
-        loaders: [
-          // use babel-loader to transpile the test and src folders
-          {
-            test: /\.jsx?$/,
-            exclude: /node_modules/,
-            loader: 'babel-loader'
-          },
-          {
-            test: /\.json$/,
-            include: [
-              /node_modules/,
-              path.resolve(__dirname, '..')
-            ],
-            loader: 'json-loader'
-          }
-        ]
-      },
+   webpack: {
+     // generate sourcemaps
+     devtool: 'eval-source-map',
+     // enzyme-specific setup
+     externals: {
+       'cheerio': 'window',
+       'react/addons': true,
+       'react/lib/ExecutionEnvironment': true,
+       'react/lib/ReactContext': true
+     },
+     module: {
+       loaders: [
+         // use babel-loader to transpile the test and src folders
+         {
+           test: /\.jsx?$/,
+           exclude: /node_modules/,
+           loader: 'babel-loader'
+         },
+         {
+           test: /\.json$/,
+           include: [
+             /node_modules/,
+             path.resolve(__dirname, '..')
+           ],
+           loader: 'json-loader'
+         }
+       ]
+     },
       resolve: {
         modules: ['app/javascript', 'node_modules']
       }
@@ -88,7 +95,6 @@ module.exports = function(config) {
       'react/addons': true,
       'react/lib/ExecutionEnvironment': true,
       'react/lib/ReactContext': true,
-      'react/addons': true
     }
   })
 }

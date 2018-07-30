@@ -3,21 +3,20 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+#   movies = Movie.create([{ name:  'Star Wars' }, { name:  'Lord of the Rings' }])
+#   Character.createname:  'Luke', movie: movies.first)
 cuisine_data = [
-  {name: 'Chinese'},
-  {name: 'Mexican'},
-  {name: 'Italian'},
-  {name: 'Japanese'},
-  {name: 'Greek'},
-  {name: 'French'},
-  {name: 'Thai'},
-  {name: 'Spanish'},
-  {name: 'Indian'},
-  {name: 'Mediterranean'}
+  {name:  'Chinese'},
+  {name:  'Mexican'},
+  {name:  'Italian'},
+  {name:  'Japanese'},
+  {name:  'Greek'},
+  {name:  'French'},
+  {name:  'Thai'},
+  {name:  'Spanish'},
+  {name:  'Indian'},
+  {name:  'Mediterranean'}
 ]
-
 
 cuisine_data.each do |cuisine|
   Cuisine.create(cuisine)
@@ -38,4 +37,21 @@ restaurant_data = [
 
 restaurant_data.each do |restaurant|
   Restaurant.create(restaurant)
+end
+
+join_table_data = [
+  {restaurant_id: 5, cuisine_id: 4},
+  {restaurant_id: 1, cuisine_id: 11},
+  {restaurant_id: 2, cuisine_id: 11},
+  {restaurant_id: 3, cuisine_id: 6},
+  {restaurant_id: 4, cuisine_id: 4},
+  {restaurant_id: 6, cuisine_id: 6},
+  {restaurant_id: 7, cuisine_id: 3},
+  {restaurant_id: 8, cuisine_id: 4},
+  {restaurant_id: 9, cuisine_id: 11},
+  {restaurant_id: 10, cuisine_id: 9}
+]
+
+join_table_data.each do |join|
+  RestaurantCuisine.create(join)
 end
