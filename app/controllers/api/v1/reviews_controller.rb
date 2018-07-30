@@ -19,7 +19,7 @@ class Api::V1::ReviewsController < ApplicationController
       #redirect_to root_path
       render status: 201, json: {
         message: "GOOD",
-        error_list: ["Implement Redirect to Rest. Show Page when done"] #@review.errors.full_messages
+        error_list: ["Review successfully added. Implement Redirect to Rest. Show Page when done"] #@review.errors.full_messages
       }.to_json
     else
       render status: 500, json: {
