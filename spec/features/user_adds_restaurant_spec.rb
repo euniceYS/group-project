@@ -6,6 +6,13 @@ feature "user adds a restaurant for a specific cuisine" do
   let!(:cuisine3) {Cuisine.create(name: "Italian")}
 
   scenario "user sees and fills out a form to create a new restaurant" do
+
+    user = FactoryBot.create(:user)
+    visit new_user_session_path
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
+    click_button 'Log in'
+
     visit new_cuisine_restaurant_path(cuisine1)
 
     expect(page).to have_content("New Restaurant Form")
