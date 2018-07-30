@@ -1,24 +1,30 @@
-import CuisineShowContainer from '../../../app/javascript/react/containers/CuisineShowContainer';
+import RestaurantShowContainer from '../../../app/javascript/react/containers/RestaurantShowContainer';
 import fetchMock from 'fetch-mock';
 
-describe('CuisineShowContainer', () => {
+describe('RestaurantShowContainer', () => {
   let wrapper;
-  let cuisine;
+  let restaurant;
 
   beforeEach(() => {
-    cuisine = {
-      cuisine: {
+    restaurant = {
+      restaurant: {
         id: 1,
-        name: 'Chinese',
-        restaurants: [{id: 1, name: "Red Arrow Diner", address: "52 Shady Lane", phone_number: "603-867-5309", email: "foo@foo.com", website: "www.foo.com" }]
+        name: "Red Arrow Diner",
+        address: "52 Shady Lane",
+        phone_number: "603-867-5309",
+        email: "foo@foo.com",
+        website: "www.foo.com",
+        cuisines:[
+          {id: 11, name: "American"}
+        ]
       }
     };
-    fetchMock.get(`/api/v1/cuisines/${cuisine.cuisine.id}`, {
+    fetchMock.get(`/api/v1/restaurants/${restaurant.restaurant.id}`, {
       status: 200,
-      body: cuisine
+      body: restaurant
     });
     wrapper = mount(
-      <CuisineShowContainer
+      <RestaurantShowContainer
         params={{id: 1}}
       />
     );
@@ -27,16 +33,16 @@ describe('CuisineShowContainer', () => {
   afterEach(fetchMock.restore);
 
   describe('show page', () => {
-    it('should contain cuisine name', (done) => {
+    it('should contain restaurant name', (done) => {
       setTimeout(() => {
-        expect(wrapper.text()).toMatch('Chinese');
+        expect(wrapper.text()).toMatch('Red Arrow Diner');
         done();
       }, 0);
     });
 
-    it('should contain a list of restaurants that associate with the cuisine', (done) => {
+    it('should contain a list of restaurants that associate with the restaurant', (done) => {
       setTimeout(() => {
-        expect(wrapper.find('h2').text()).toBe('Red Arrow Diner');
+        expect(wrapper.find('h1').text()).toBe('Red Arrow Diner');
         done();
       }, 0);
     });
@@ -57,7 +63,7 @@ describe('CuisineShowContainer', () => {
 
     it('renders a list item for each item returned from the api call', (done) => {
       setTimeout(() => {
-        expect(wrapper.find('h4').text()).toBe('603-867-5309');
+        expect(wrapper.find('li.rest-phone-number').text()).toBe('603-867-5309');
         done();
       }, 0);
     });

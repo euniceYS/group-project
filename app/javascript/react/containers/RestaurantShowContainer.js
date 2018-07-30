@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import RestaurantTile from '../components/RestaurantTile';
 
 class RestaurantShowContainer extends Component {
   constructor(props) {
@@ -7,7 +8,6 @@ class RestaurantShowContainer extends Component {
       restaurant: {}
     };
   }
-
 
   componentDidMount() {
     fetch(`/api/v1/restaurants/${this.props.params.id}`)
@@ -30,10 +30,17 @@ class RestaurantShowContainer extends Component {
   }
 
   render() {
-
     return (
       <div className="colums rows">
-        hello
+        <RestaurantTile
+          key={this.state.restaurant.id}
+          id={this.state.restaurant.id}
+          name={this.state.restaurant.name}
+          address={this.state.restaurant.address}
+          phone_number={this.state.restaurant.phone_number}
+          email={this.state.restaurant.email}
+          website={this.state.restaurant.website}
+        />
       </div>
     );
   }

@@ -11,5 +11,4 @@ const CuisineTile = (props) => {
   );
 };
 
-
 export default CuisineTile;

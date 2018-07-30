@@ -41,7 +41,7 @@ class CuisinesIndexContainer extends Component {
     });
 
     return (
-      <div>
+      <div className="rows columns">
         <h1>Effective Fork</h1>
           {cuisines}
       </div>
