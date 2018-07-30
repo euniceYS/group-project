@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import CuisinesIndexContainer from '../containers/CuisinesIndexContainer';
-
 import CuisineShowContainer from '../containers/CuisineShowContainer';
 import RestaurantShowContainer from '../containers/RestaurantShowContainer';
-
-import RestaurantReviewFormContainer from '../containers/RestaurantReviewFormContainer'
-
+import RestaurantReviewFormContainer from '../containers/RestaurantReviewFormContainer';
 import NavBar from './NavBar';
 
 export const App = (props) => {
