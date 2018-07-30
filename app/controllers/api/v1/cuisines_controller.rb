@@ -3,6 +3,4 @@ class Api::V1::CuisinesController < ApplicationController
     render json: Cuisine.all
   end
 
-  def show
-end
 end

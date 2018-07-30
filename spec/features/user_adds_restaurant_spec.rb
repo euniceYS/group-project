@@ -25,6 +25,7 @@ feature "user adds a restaurant for a specific cuisine" do
     fill_in 'Email', with: "falafel@falfel.com"
 
     fill_in 'Website', with: "iluvfalafel.net"
-    #click_button 'Add Restaurant'
+    click_button 'Add Restaurant'
+    expect(page).to have_content("Restaurant added successfully!")
   end
 end

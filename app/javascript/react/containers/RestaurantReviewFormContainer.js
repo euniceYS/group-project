@@ -36,8 +36,8 @@ class RestaurantReviewFormContainer extends Component {
         restaurant_id: this.props.params.restaurant_id
       };
       this.submitReview(formPayLoad);
+    }
   }
-}
 
   validateReviewTitle(selection) {
     if (selection.trim() === '') {
@@ -83,9 +83,8 @@ class RestaurantReviewFormContainer extends Component {
 
 
   submitReview(payload) {
-    let post_url = `/api/v1/reviews`
     let data = JSON.stringify(payload)
-    fetch(post_url, {
+    fetch(`/api/v1/reviews`, {
       method: 'POST',
       credentials: 'include',
       headers: {
@@ -93,46 +92,53 @@ class RestaurantReviewFormContainer extends Component {
         'Content-Type': 'application/json',
       },
       body: data
-    })
-    .then(response => {
-      if (response.status == 500) {
-        console.log("500 code")
+    }).then(response => {response
+      if (response.ok) {
+        return response
+      } else if (response.status == 422){
+        return response
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+        error = new Error(errorMessage)
+        throw(error)
+      }
+    }).then(response => {
+      if (response.status == 422) {
+        console.log("422 code")
         return response.json()
       } else {
         console.log("Implement Redirect")
-        return response.json()
       }
     }).then(parsedBody => {
-      this.setState({ errors: Object.assign(this.state.errors, parsedBody.error_list) })
+      this.setState({ errors: Object.assign(this.state.errors, parsedBody.errorList) })
       console.log(parsedBody)
     })
-
-    console.log("submit review")
+    .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
+
 
   handleTitleUpdate(event) {
     this.setState  ({
- 	   reviewTitle: event.target.value
-
- 	 })
- 	}
+      reviewTitle: event.target.value
+    })
+  }
 
   handleBodyUpdate(event) {
-	 this.setState  ({
-	   reviewBody: event.target.value
-	 })
-	}
+    this.setState  ({
+      reviewBody: event.target.value
+    })
+  }
 
   handleRatingUpdate(event) {
     this.setState  ({
- 	   reviewRating: event.target.value
- 	 })
- 	}
+      reviewRating: event.target.value
+    })
+  }
 
- render() {
+  render() {
 
-  let errorDiv;
-  let errorItems;
+    let errorDiv;
+    let errorItems;
     if (Object.keys(this.state.errors).length > 0) {
       errorItems = Object.values(this.state.errors).map(error => {
         return(<li key={error}>{error}</li>)
@@ -142,17 +148,15 @@ class RestaurantReviewFormContainer extends Component {
     }
 
     return (
-
-
       <div>
-        <h1>Restaurant Review Form</h1>
-        {errorDiv}
-        <RestaurantReviewForm
+      <h1>Restaurant Review Form</h1>
+      {errorDiv}
+      <RestaurantReviewForm
         handleFormSubmit = {this.handleFormSubmit}
         handleTitleUpdate = {this.handleTitleUpdate}
         handleBodyUpdate = {this.handleBodyUpdate}
         handleRatingUpdate = {this.handleRatingUpdate}
-        />
+      />
       </div>
     );
   }

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <%= stylesheet_link_tag 'application', media: 'all' %>
 
-    <%= javascript_include_tag "vendor/modernizr" %>
+  <%= javascript_include_tag "vendor/modernizr" %>
 
   <%= csrf_meta_tags %>
 </head>
@@ -21,28 +21,24 @@
     <section class="top-bar-section">
       <ul class="right">
         <%- if current_user -%>
-          <li> <%= link_to 'View Profile', profile_path(current_user) %>  </li>
-          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+        <li> <%= link_to 'View Profile', profile_path(current_user) %>  </li>
+        <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
         <%- else -%>
-          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-          <li><%= link_to 'Sign In', new_user_session_path %></li>
+        <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+        <li><%= link_to 'Sign In', new_user_session_path %></li>
         <%- end -%>
       </ul>
     </section>
   </nav>
 
   <%- flash.each do |key, value| -%>
-
-  <% if flash[:error] %>
-        <div data-alert class="alert-box alert round"><%= flash[:error] %></div>
-      <% end %>
-
-      <%if flash[:notice] %>
-        <div data-alert class="alert-box success radius"><%= flash[:notice] %></div>
-      <% else %>
-      <div data-alert class="alert-box alert round"><%= flash[key] %></div>
-      <%- end -%>
-
+    <% if flash[:error] %>
+    <div data-alert class="alert-box alert round"><%= flash[:error] %></div>
+    <% elsif flash[:notice] %>
+    <div data-alert class="alert-box success radius"><%= flash[:notice] %></div>
+    <% else %>
+    <div data-alert class="alert-box alert round"><%= flash[key] %></div>
+    <%- end -%>
   <%- end -%>
 
   <%= yield %>
@@ -50,9 +46,9 @@
   <%= javascript_include_tag 'application' %>
 
   <%- if Rails.env.development? || Rails.env.test? -%>
-    <%= javascript_tag do %>
-      window.railsEnv = '<%= Rails.env %>'
-    <%- end -%>
+  <%= javascript_tag do %>
+  window.railsEnv = '<%= Rails.env %>'
+  <%- end -%>
   <%- end -%>
   <%= javascript_pack_tag 'application' %>
 

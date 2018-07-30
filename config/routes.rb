@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'static_pages#index'
+  root 'cuisines#index'
   devise_for :users, :controllers => { :registrations => :registrations }
 
   resources :cuisines, only: [:index] do

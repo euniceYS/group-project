@@ -14,7 +14,7 @@ const RestaurantReviewForm = (props) => {
       content='Write a review'
         label='Add Review'
         name='body'
-        handlerFunction={props.handleBodyUpdate} // will become our onChange function
+        handlerFunction={props.handleBodyUpdate} 
       />
       <TextField
         label='Add Rating'
