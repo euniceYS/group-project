@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  root 'cuisines#index'
+  root 'static_pages#index'
   devise_for :users, :controllers => { :registrations => :registrations }
 
   resources :cuisines, only: [:index] do
-    resources :restaurants, only: [:show]
+    resources :restaurants, only: [:show, :new, :create]
   end
 
   resources :profiles, only: [:show]
@@ -12,9 +12,11 @@ Rails.application.routes.draw do
  resources :restaurants do
    resources :reviews, only: [:new]
  end
-  namespace :api do
-    namespace :v1 do
+
+ namespace :api do
+   namespace :v1 do
       resources :cuisines, only: [:index]
+      resources :reviews, only: [:create, :index]
     end
   end
 end

@@ -22,3 +22,20 @@ cuisine_data = [
 cuisine_data.each do |cuisine|
   Cuisine.create(cuisine)
 end
+
+restaurant_data = [
+  {name: "Boston Public House", street: "131 State St", city: "Boston", state: "MA", zip: "00000",  phone_number: "617-948-9800", email: "rs2@restaurant.com"},
+  {name: "Legal Crossing", street: "558 Washington St", city: "Boston", state: "MA", zip: "00000",  phone_number: "617-692-8888", email: "rs3@restaurant.com"},
+  {name: "Yvonne's", street: "2 Winter Pl", city: "Boston", state: "MA", zip: "00000",  phone_number: "617-267-0047", email: "rs4@restaurant.com", website: "www.yvonnesboston.com"},
+  {name: "Shojo", street: "9A Tyler St", city: "Boston", state: "MA", zip: "00000",  phone_number: "617-423-7888", email: "rs5@restaurant.com"},
+  {name: "Tora Japanese Restaurant", street: "20B Tyler St", city: "Boston", state: "MA", zip: "00000",  phone_number: "617-542-6688", email: "rs6@restaurant.com"},
+  {name: "Gaslight", street: "560 Harrison Ave", city: "Boston", state: "MA", zip: "00000", phone_number: "617-422-0224", email: "rs7@restaurant.com", website: "www.gaslight560.com"},
+  {name: "Hot Eastern", street: "42 Beach St", city: "Boston", state: "MA", zip: "00000", phone_number: "857-302-3412", email: "rs8@restaurant.com"},
+  {name: "O Ya", street: "9 East St Pl", city: "Boston", state: "MA", zip: "00000", phone_number: "617-654-9900", email: "rs9@restaurant.com"},
+  {name: "75 Chestnut", street: "75 Chestnut St", city: "Boston", state: "MA", zip: "00000", phone_number: "617-227-2175", email: "rs10@restaurant.com"}
+  {name: "D'Guru Restaurant", street: '187 Devonshire St', city: 'Boston', state: 'MA', zip: '02110', phone_number: '617-319-4392', website: 'www.guruthecaterer.com'}
+]
+
+restaurant_data.each do |restaurant|
+  Restaurant.create(restaurant)
+end
