@@ -1,0 +1,10 @@
+<div class="">
+  <h2> <%= @user.name %>'s Profile </h2>
+  <h3> Username: <%= @user.name %>  </h3>
+  <h3> Email: <%= @user.email %>  </h3>
+  <%= image_tag(@user.profile_photo.url(:thumb).to_s) %>
+</div>
+
+<div class="">
+  <%= link_to 'Edit Profile',  edit_user_registration_path(current_user)%>
+</div>
