@@ -1,0 +1,11 @@
+.restaurant_list_tile{
+  background: #c9c9c9;
+  width: 80%;
+  border: 1px solid;
+  margin:1% auto;
+  width: 80%;
+}
+
+.restaurant_list_tile:hover {
+  opacity: 0.8;
+}

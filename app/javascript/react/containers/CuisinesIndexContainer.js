@@ -43,7 +43,7 @@ class CuisinesIndexContainer extends Component {
     return (
       <div>
         <h1>Effective Fork</h1>
-        {cuisines}
+          {cuisines}
       </div>
     );
   }
