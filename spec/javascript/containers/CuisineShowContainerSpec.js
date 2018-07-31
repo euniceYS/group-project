@@ -1,4 +1,5 @@
 import CuisineShowContainer from '../../../app/javascript/react/containers/CuisineShowContainer';
+import RestaurantFormContainer from '../../../app/javascript/react/containers/RestaurantFormContainer';
 import fetchMock from 'fetch-mock';
 
 describe('CuisineShowContainer', () => {
@@ -18,9 +19,14 @@ describe('CuisineShowContainer', () => {
       body: cuisine
     });
     wrapper = mount(
-      <CuisineShowContainer
-        params={{id: 1}}
-      />
+      <div>
+        <CuisineShowContainer
+          params={{id: 1}}
+        />
+        <RestaurantFormContainer
+          cuisine_id={1}
+        />
+      </div>
     );
   });
 
@@ -41,25 +47,43 @@ describe('CuisineShowContainer', () => {
       }, 0);
     });
 
-    it('renders a list item for each item returned from the api call', (done) => {
+    it('renders a address list item for each item returned from the api call', (done) => {
       setTimeout(() => {
         expect(wrapper.find('li.rest-address').text()).toBe('52 Shady Lane');
         done();
       }, 0);
     });
 
-    it('renders a list item for each item returned from the api call', (done) => {
+    it('renders a email list item for each item returned from the api call', (done) => {
       setTimeout(() => {
         expect(wrapper.find('li.rest-email').text()).toBe('foo@foo.com');
         done();
       }, 0);
     });
 
-    it('renders a list item for each item returned from the api call', (done) => {
+    it('renders a phone number list item for each item returned from the api call', (done) => {
       setTimeout(() => {
         expect(wrapper.find('h4').text()).toBe('603-867-5309');
         done();
       }, 0);
     });
+
+    it('renders add a restaurant form', (done) => {
+      setTimeout(() => {
+        console.log(wrapper.debug())
+        expect(wrapper.text()).toContain("Restaurant Form");
+        done();
+      }, 0);
+    });
+
+    it('renders add file dropzone component', (done) => {
+      setTimeout(() => {
+        console.log(wrapper.debug())
+        expect(wrapper.text()).toContain("Dropped files");
+        done();
+      }, 0);
+    });
+
+
   });
 });

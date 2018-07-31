@@ -31,7 +31,7 @@ restaurant_data = [
   {name: "Gaslight", street: "560 Harrison Ave", city: "Boston", state: "MA", zip: "00000", phone_number: "617-422-0224", email: "rs7@restaurant.com", website: "www.gaslight560.com"},
   {name: "Hot Eastern", street: "42 Beach St", city: "Boston", state: "MA", zip: "00000", phone_number: "857-302-3412", email: "rs8@restaurant.com"},
   {name: "O Ya", street: "9 East St Pl", city: "Boston", state: "MA", zip: "00000", phone_number: "617-654-9900", email: "rs9@restaurant.com"},
-  {name: "75 Chestnut", street: "75 Chestnut St", city: "Boston", state: "MA", zip: "00000", phone_number: "617-227-2175", email: "rs10@restaurant.com"}
+  {name: "75 Chestnut", street: "75 Chestnut St", city: "Boston", state: "MA", zip: "00000", phone_number: "617-227-2175", email: "rs10@restaurant.com"},
   {name: "D'Guru Restaurant", street: '187 Devonshire St', city: 'Boston', state: 'MA', zip: '02110', phone_number: '617-319-4392', website: 'www.guruthecaterer.com'}
 ]
 

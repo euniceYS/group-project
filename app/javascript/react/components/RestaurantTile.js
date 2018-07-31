@@ -1,4 +1,5 @@
 import React from 'react';
+import PhotoDisplay from './PhotoDisplay';
 
 const RestaurantTile = (props) => {
   let website;
@@ -11,7 +12,6 @@ const RestaurantTile = (props) => {
   if (props.email != null) {
     email = <li className="rest-email">{props.email}</li>;
   }
-
   return (
     <div>
       <h1>{`${props.name}`}</h1>
@@ -23,6 +23,11 @@ const RestaurantTile = (props) => {
           {website}
         </ul>
       </div>
+      <PhotoDisplay
+        photos={props.photos}
+        cssClass={"restaurant_photos"}
+        modelName={"restaurant"}
+      />
     </div>
   );
 };

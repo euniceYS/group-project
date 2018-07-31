@@ -12,7 +12,7 @@ class Api::V1::ReviewsController < ApplicationController
     @restaurant = Restaurant.find(params[:review][:restaurant_id])
     @review.restaurant = @restaurant
     @review.title = params[:review][:title]
-    @review.body = nil #params[:review][:body]
+    @review.body = params[:review][:body]
     @review.rating = params[:review][:rating]
     @review.user = current_user
     if @review.save

@@ -67,5 +67,13 @@ describe('RestaurantShowContainer', () => {
         done();
       }, 0);
     });
+
+    it('renders a div for restaurant photos', (done) => {
+      setTimeout(() => {
+        expect(wrapper.find('h3').text()).toBe('Photos');
+        done();
+      }, 0);
+    });
+
   });
 });

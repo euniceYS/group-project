@@ -5,7 +5,7 @@ const TextField = props => {
       <input
         name={props.name}
         type='text'
-        value={props.content}
+        value={props.value}
         onChange={props.handlerFunction}
       />
     </label>

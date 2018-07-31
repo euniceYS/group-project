@@ -23,4 +23,6 @@ describe Restaurant do
 
   it { should have_many :restaurant_cuisines }
   it { should have_many :cuisines }
+  it { should have_many :restaurant_photos }
+
 end

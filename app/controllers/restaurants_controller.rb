@@ -8,6 +8,11 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.new(restaurant_params)
     @cuisine = Cuisine.find(params[:cuisine_id])
     @restaurant.cuisines << @cuisine
+    @restaurant_photo = RestaurantPhoto.new
+    @restaurant_photo.user = current_user
+    @restaurant_photo.restaurant_photo = Rails.root.join("spec/support/images/stock-restaurant.jpg").open
+    @restaurant_photo.title = "Some Restaurant"
+    @restaurant.restaurant_photos << @restaurant_photo
     if @restaurant.save
       flash[:notice] = "Restaurant added successfully!"
       redirect_to new_cuisine_restaurant_path(@cuisine)
