@@ -49,6 +49,17 @@ describe('CuisineShowContainer', () => {
         })
     });
 
+    it('Props should be passed down to RestaurantListTile and we can see the restaurant Name', () => {
+      wrapper.setState({
+          id: 1,
+          name: 'Chinese',
+          restaurants: [{id: 1, name: "Red Arrow Diner", address: "52 Shady Lane", phone_number: "603-867-5309", email: "foo@foo.com", website: "www.foo.com" }]
+      })
+      setTimeout(() => {
+        expect(wrapper.find(RestaurantListTile).first().props().name).toEqual('Red Arrow Diner');
+        })
+    });
+
     it('should render one RestaurantFormContainer', () => {
       expect(wrapper.find(RestaurantFormContainer).length).toEqual(1);
     });

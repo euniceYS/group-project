@@ -14,10 +14,14 @@ describe('RestaurantFormContainer', () => {
       email: "foo@foo.com",
       website: "www.foo.com"
     };
+
+    let updateRestaurantsList = () => {
+      return true
+    }
     wrapper = mount(
         <RestaurantFormContainer
           cuisine_id = {1}
-          updateRestaurantsList = {console.log('updateRestaurantsList')}
+          updateRestaurantsList = {updateRestaurantsList}
         />
     );
   });
@@ -25,6 +29,11 @@ describe('RestaurantFormContainer', () => {
   afterEach(fetchMock.restore)
 
   describe('Restaurant Form', () => {
+
+    it('should have the specified initial state', () => {
+      expect(wrapper.props().cuisine_id).toEqual(1);
+    })
+
     it('Has a title Restaurant Form', (done) => {
       setTimeout(() => {
         expect(wrapper.text()).toMatch('Restaurant Form');
