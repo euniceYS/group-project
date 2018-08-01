@@ -1,8 +1,10 @@
 import React from 'react';
+import ReviewTile from './ReviewTile';
 
 const RestaurantTile = (props) => {
   let website;
   let email;
+  let result;
 
   if (props.website != null) {
     website = <li className="rest-website">{props.website}</li>;
@@ -12,8 +14,24 @@ const RestaurantTile = (props) => {
     email = <li className="rest-email">{props.email}</li>;
   }
 
+   if (props.reviews != null) {
+    result = props.reviews.map(review => {
+      return(
+        <ReviewTile
+          key = {review.id}
+          id = {review.id}
+          user = {review.user}
+          created_date = {review.created_date}
+          rating = {review.rating}
+          title = {review.title}
+          body = {review.body}
+        />
+      );
+    });
+   }
+
   return (
-    <div>
+    <div className="rows columns">
       <h1>{`${props.name}`}</h1>
       <div className="restaurant_info_box">
         <ul>
@@ -22,6 +40,7 @@ const RestaurantTile = (props) => {
           {email}
           {website}
         </ul>
+        {result}
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-<h2>Edit Your Profile <%= current_user.name.to_s.humanize %></h2>
+<h1 class="page-title user-profile">Edit Your Profile <%= current_user.name.to_s.humanize %></h1>
 
 <%= form_for(current_user, url: profile_path(current_user), html: { method: :put }) do |f| %>
 

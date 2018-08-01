@@ -49,7 +49,7 @@ class CuisineShowContainer extends Component {
     });
 
     return (
-      <div className="colums rows">
+      <div className="colums rows text-center">
         <h1>{this.state.name}</h1>
         {restaurants}
       </div>

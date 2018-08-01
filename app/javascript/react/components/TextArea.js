@@ -1,7 +1,8 @@
-import React from 'react'
+import React from 'react';
 const TextArea = props => {
   return (
-    <label>{props.label}
+    <label>
+      {props.label}
       <textarea
         name={props.name}
         value={props.value}
@@ -9,6 +10,6 @@ const TextArea = props => {
       />
     </label>
   );
-}
+};
 
 export default TextArea;

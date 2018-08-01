@@ -1,0 +1,113 @@
+.app-title {
+  margin-bottom: 1%;
+  font-size: 3.2em;
+  color: #A8E1D4;
+}
+.cuisine-tile {
+  background-color: #fff;
+  color: #fff;
+  display: inline-block;
+  font-family: 'Oswald', sans-serif;
+  font-size: 24px;
+  margin: 3%;
+  max-width: 315px;
+  min-width: 230px;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+
+.cuisine-tile * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.45s ease;
+  transition: all 0.45s ease;
+}
+
+.cuisine-tile:before,
+.cuisine-tile:after {
+  background-color: rgba(181, 244, 228, 0.5);
+  border-top: 50px solid rgba(0, 0, 0, 0.3);
+  border-bottom: 50px solid rgba(0, 0, 0, 0.3);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  content: '';
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  z-index: 1;
+  opacity: 0;
+}
+
+.cuisine-tile:before {
+  -webkit-transform: scaleY(2);
+  transform: scaleY(2);
+}
+
+.cuisine-tile:after {
+  -webkit-transform: scaleY(2);
+  transform: scaleY(2);
+}
+
+.cuisine-tile img {
+  vertical-align: top;
+  max-width: 100%;
+  backface-visibility: hidden;
+}
+
+.cuisine-tile .shadowbox {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  align-items: center;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.1em;
+  opacity: 0;
+  z-index: 2;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+
+.cuisine-tile a {
+  font-size: 1em;
+  font-weight: 400;
+  letter-spacing: 2px;
+  margin: 0;
+  text-transform: uppercase;
+  color: #fff;
+  position: absolute;
+  top: 45%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+}
+
+.cuisine-tile:hover > img,
+.cuisine-tile.hover > img {
+  opacity: 0.7;
+}
+
+.cuisine-tile:hover:before,
+.cuisine-tile.hover:before,
+.cuisine-tile:hover:after,
+.cuisine-tile.hover:after {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  opacity: 1;
+}
+
+.cuisine-tile:hover .shadowbox,
+.cuisine-tile.hover .shadowbox {
+  opacity: 1;
+  -webkit-transition-delay: 0.1s;
+  transition-delay: 0.1s;
+}

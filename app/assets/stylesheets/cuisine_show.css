@@ -1,11 +1,25 @@
 .restaurant_list_tile{
-  background: #c9c9c9;
+  background: #f6f6f6;
   width: 80%;
-  border: 1px solid;
-  margin:1% auto;
+  border: 1px solid #f6f6f6;
+  box-shadow: 2px 2px 2px #cfcfcf;
+  margin: 5% auto;
   width: 80%;
+  padding: 1%;
+}
+
+.restaurant_list_tile div{
+  display: inline-block;
 }
 
 .restaurant_list_tile:hover {
   opacity: 0.8;
+}
+
+.restaurant_list_tile img{
+  vertical-align: bottom;
+}
+
+.restaurant_list_tile a{
+  color: #666;
 }

@@ -23,6 +23,8 @@ class RestaurantsController < ApplicationController
     @cuisine = Cuisine.find(params[:cuisine_id])
   end
 
+private
+
   def restaurant_params
       params.require(:restaurant).permit(:name, :street, :city, :state, :zip, :phone_number, :email, :website, :cuisine_id)
   end
