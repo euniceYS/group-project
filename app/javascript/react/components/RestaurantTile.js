@@ -1,5 +1,6 @@
 import React from 'react';
-import ReviewTile from './ReviewTile';
+import PhotoDisplay from './PhotoDisplay';
+import PhotoDisplay from './ReviewTile';
 
 const RestaurantTile = (props) => {
   let website;
@@ -42,6 +43,11 @@ const RestaurantTile = (props) => {
         </ul>
         {result}
       </div>
+      <PhotoDisplay
+        photos={props.photos}
+        cssClass={"restaurant_photos"}
+        modelName={"restaurant"}
+      />
     </div>
   );
 };

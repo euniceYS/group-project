@@ -30,7 +30,10 @@ class RestaurantShowContainer extends Component {
         reviews: body.restaurant.reviews
       });
     })
-    .catch(error => console.error(`Error in fetch: ${error.message}`));
+      .catch(error => {
+        console.error(`Error in fetch`)
+        console.error(error)
+      });
   }
 
   submitReview(payload) {
@@ -86,6 +89,7 @@ class RestaurantShowContainer extends Component {
         <RestaurantReviewFormContainer
           id={this.state.restaurant.id}
           submitReview={this.submitReview}
+          photos={this.state.restaurant.restaurant_photos}
         />
       </div>
     );

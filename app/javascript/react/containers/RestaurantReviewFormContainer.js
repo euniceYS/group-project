@@ -44,7 +44,6 @@ class RestaurantReviewFormContainer extends Component {
         rating: this.state.reviewRating,
         restaurant_id: this.props.id
       };
-      console.log(formPayLoad);
       this.props.submitReview(formPayLoad);
       this.handleClearForm(event);
     }
@@ -52,7 +51,6 @@ class RestaurantReviewFormContainer extends Component {
 
   validateReviewTitle(selection) {
     if (selection.trim() === '') {
-      console.log("title error");
       let newError = { reviewTitle: 'You must enter a Title!' };
       this.setState({ errors: Object.assign(this.state.errors, newError) });
       return false;
@@ -66,7 +64,6 @@ class RestaurantReviewFormContainer extends Component {
 
   validateReviewBody(selection) {
     if (selection.trim() === '') {
-      console.log("body error");
       let newError = { reviewBody: 'You must enter a Description!' };
       this.setState({ errors: Object.assign(this.state.errors, newError) });
       return false;
@@ -80,7 +77,6 @@ class RestaurantReviewFormContainer extends Component {
 
   validateReviewRating(selection) {
     if (selection.trim() === '') {
-      console.log("rating error");
       let newError = { reviewRating: 'You must enter a Rating!' };
       this.setState({ errors: Object.assign(this.state.errors, newError) });
       return false;
