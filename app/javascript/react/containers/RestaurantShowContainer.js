@@ -21,12 +21,15 @@ class RestaurantShowContainer extends Component {
       }
     })
     .then(response => response.json())
-    .then(body => {
-      this.setState({
-        restaurant: body.restaurant
-      });
+      .then(body => {
+        this.setState({
+          restaurant: body.restaurant
+        });
     })
-    .catch(error => console.error(`Error in fetch: ${error.message}`));
+      .catch(error => {
+        console.error(`Error in fetch`)
+        console.error(error)
+      });
   }
 
   render() {
@@ -40,6 +43,7 @@ class RestaurantShowContainer extends Component {
           phone_number={this.state.restaurant.phone_number}
           email={this.state.restaurant.email}
           website={this.state.restaurant.website}
+          photos={this.state.restaurant.restaurant_photos}
         />
       </div>
     );

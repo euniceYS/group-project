@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import RestaurantListTile from '../components/RestaurantListTile';
+import RestaurantFormContainer from '../containers/RestaurantFormContainer'
 
 class CuisineShowContainer extends Component {
   constructor(props) {
@@ -7,8 +8,15 @@ class CuisineShowContainer extends Component {
     this.state = {
       name: "",
       id: null,
-      restaurantsArray:[]
+      restaurantsArray:[],
+      restaurantsUpdated: false
     };
+    this.updateRestaurantsList = this.updateRestaurantsList.bind(this)
+
+  }
+
+  updateRestaurantsList(newRestaurant) {
+    this.setState({restaurantsArray: this.state.restaurantsArray.concat([newRestaurant.restaurant])})
   }
 
   componentDidMount() {
@@ -30,11 +38,13 @@ class CuisineShowContainer extends Component {
         restaurantsArray: body.cuisine.restaurants
       });
     })
-    .catch(error => console.error(`Error in fetch: ${error.message}`));
+    .catch(error => console.error(`Error in fetch: ${error}`));
   }
 
   render() {
+
     let restaurants = this.state.restaurantsArray.map( restaurant => {
+
       return(
         <RestaurantListTile
           key={restaurant.id}
@@ -52,7 +62,14 @@ class CuisineShowContainer extends Component {
       <div className="colums rows">
         <h1>{this.state.name}</h1>
         {restaurants}
+        <div>
+          <RestaurantFormContainer
+            cuisine_id={this.state.id}
+            updateRestaurantsList={this.updateRestaurantsList}
+          />
+        </div>
       </div>
+
     );
   }
 }
