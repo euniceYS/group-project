@@ -1,6 +1,6 @@
 import React from 'react';
 import PhotoDisplay from './PhotoDisplay';
-import PhotoDisplay from './ReviewTile';
+import ReviewTile from './ReviewTile';
 
 const RestaurantTile = (props) => {
   let website;
