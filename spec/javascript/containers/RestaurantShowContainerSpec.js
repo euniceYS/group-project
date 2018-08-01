@@ -127,9 +127,9 @@ describe('RestaurantShowContainer', () => {
       }, 0);
     });
 
-    it('renders a div for restaurant photos', (done) => {
+    fit('renders a div for restaurant photos', (done) => {
       setTimeout(() => {
-        expect(wrapper.find('h3').text()).toBe('Photos');
+        expect(wrapper.find('h4').text()).toBe('Photos');
         done();
       }, 0);
     });
