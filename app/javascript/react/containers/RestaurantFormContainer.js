@@ -34,10 +34,10 @@ class RestaurantFormContainer extends Component {
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.formIsValid = this.formIsValid.bind(this);
     this.onDrop = this.onDrop.bind(this);
-    this.successfulFormSubmit = this.successfulFormSubmit.bind(this);
+    this.clearForm = this.clearForm.bind(this);
   }
 
-  successfulFormSubmit(event) {
+  clearForm(event) {
     event.preventDefault()
     this.setState({
         name: '',
@@ -77,59 +77,49 @@ class RestaurantFormContainer extends Component {
 
   handleFormSubmit(event) {
     event.preventDefault();
-    console.log("handleFormSubmit")
     if (this.formIsValid()) {
-        let body = new FormData()
-        body.append("name", this.state.name)
-        body.append("street", this.state.street)
-        body.append("city", this.state.city)
-        body.append("state", this.state.state)
-        body.append("zip", this.state.zip)
-        body.append("phoneNumber", this.state.phoneNumber)
-        body.append("email", this.state.email)
-        body.append("website", this.state.website)
-        body.append("photo", this.state.file[0])
-        body.append("cuisine_id", this.props.cuisine_id)
-        this.successfulFormSubmit(event)
-        this.submitRestaurant(body)
+        let restaurantData = new FormData()
+        restaurantData.append("name", this.state.name)
+        restaurantData.append("street", this.state.street)
+        restaurantData.append("city", this.state.city)
+        restaurantData.append("state", this.state.state)
+        restaurantData.append("zip", this.state.zip)
+        restaurantData.append("phone_number", this.state.phoneNumber)
+        restaurantData.append("email", this.state.email)
+        restaurantData.append("website", this.state.website)
+        restaurantData.append("photo", this.state.file[0])
+        restaurantData.append("cuisine_id", this.props.cuisine_id)
+        this.clearForm(event)
+        this.submitRestaurant(restaurantData)
       }
-
   }
 
-  submitRestaurant(body) {
+
+  submitRestaurant(data) {
     fetch(`/api/v1/restaurants`, {
       method: 'POST',
       credentials: 'same-origin',
-      body: body
+      body: data
     }).then(response => {response
       if (response.ok) {
         return response
-      } else if (response.status == 422){
-        return response
       } else {
-        let errorMessage = `${response.status} (${response.statusText})`,
-        error = new Error(errorMessage)
-        throw(error)
+        throw(response)
       }
     }).then(response => {
-      if (response.status == 422) {
-        console.log("code 422")
         return response.json()
-      } else {
-
-        this.setState({notices: {notice: "Restaurant added successfully!"}})
-        return response.json()
-      }
-
     }).then(parsedBody => {
-      if (parsedBody.errorList) {
-        this.setState({ errors: Object.assign(this.state.errors, parsedBody.errorList) })
-      } else {
-        this.props.updateParent(parsedBody)
-
-      }
+        this.setState({notices: {notice: "Restaurant added successfully!"}})
+        this.props.updateRestaurantsList(parsedBody)
     })
-    .catch(error => console.error(`Error in fetch: ${error.message}`));
+    .catch(error => {
+      console.error(`Error in fetch`)
+      return error.json()
+    }).then(errorData => {
+      if (errorData.errorList) {
+         this.setState({ errors: Object.assign(this.state.errors, errorData.errorList) })
+       }
+    });
   }
 
 
@@ -218,7 +208,7 @@ class RestaurantFormContainer extends Component {
       {noticesDiv}
       {errorDiv}
 
-      <form className="callout" id="newRestaurantForm" onSubmit={this.handleFormSubmit}>
+      <form className="restaurant-form form callout" id="newRestaurantForm" onSubmit={this.handleFormSubmit}>
       <TextField
         label='Name'
         name='name'

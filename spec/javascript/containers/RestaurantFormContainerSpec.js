@@ -14,12 +14,10 @@ describe('RestaurantFormContainer', () => {
       email: "foo@foo.com",
       website: "www.foo.com"
     };
-
-
     wrapper = mount(
         <RestaurantFormContainer
           cuisine_id = {1}
-          updateParent = {console.log('updateParent')}
+          updateRestaurantsList = {console.log('updateRestaurantsList')}
         />
     );
   });
@@ -30,13 +28,6 @@ describe('RestaurantFormContainer', () => {
     it('Has a title Restaurant Form', (done) => {
       setTimeout(() => {
         expect(wrapper.text()).toMatch('Restaurant Form');
-        done();
-      }, 0);
-    });
-
-    it('renders add a restaurant form', (done) => {
-      setTimeout(() => {
-        expect(wrapper.text()).toContain("Restaurant Form");
         done();
       }, 0);
     });
@@ -72,7 +63,6 @@ describe('RestaurantFormContainer', () => {
       }, 0)
     })
 
-
     it('unsuccessfully adds a restaurant and doesnt fill out a required field (zip code)', (done) => {
       fetchMock.post('/api/v1/restaurants', {
         status: 201,
@@ -84,7 +74,7 @@ describe('RestaurantFormContainer', () => {
           city: 'Boston',
           state: 'MA',
           zip: '',
-          phoneNumber: '12345',
+          phone_number: '12345',
           email: 'try@trynt.com',
           website: 'http://www.html.com'
         })
@@ -118,7 +108,7 @@ describe('RestaurantFormContainer', () => {
           expect(wrapper.text()).toMatch('Unable to save your restaurant!');
           done()
         }, 0)
-      })
+    })
 
   });
 })

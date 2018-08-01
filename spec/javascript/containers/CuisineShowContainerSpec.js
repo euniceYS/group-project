@@ -1,6 +1,10 @@
 import CuisineShowContainer from '../../../app/javascript/react/containers/CuisineShowContainer';
 import RestaurantFormContainer from '../../../app/javascript/react/containers/RestaurantFormContainer';
+import RestaurantListTile from '../../../app/javascript/react/components/RestaurantListTile';
 import fetchMock from 'fetch-mock';
+import { mount } from 'enzyme';
+import jasmineEnzyme from 'jasmine-enzyme';
+import React from 'react';
 
 describe('CuisineShowContainer', () => {
   let wrapper;
@@ -19,64 +23,34 @@ describe('CuisineShowContainer', () => {
       body: cuisine
     });
     wrapper = mount(
-      <div>
         <CuisineShowContainer
           params={{id: 1}}
         />
-      </div>
     );
+
   });
 
   afterEach(fetchMock.restore);
 
   describe('show page', () => {
-    it('should contain cuisine name', (done) => {
+
+    it('should have the specified initial state', () => {
+      expect(wrapper.props().params.id).toEqual(1);
+    })
+
+    it('should render one RestaurantListTiles given the mount setup', () => {
+      wrapper.setState({
+          id: 1,
+          name: 'Chinese',
+          restaurants: [{id: 1, name: "Red Arrow Diner", address: "52 Shady Lane", phone_number: "603-867-5309", email: "foo@foo.com", website: "www.foo.com" }]
+      })
       setTimeout(() => {
-        expect(wrapper.text()).toMatch('Chinese');
-        done();
-      }, 0);
+        expect(wrapper.find(RestaurantListTile).length).toEqual(1);
+        })
     });
 
-    it('should contain a list of restaurants that associate with the cuisine', (done) => {
-      setTimeout(() => {
-        expect(wrapper.find('h2').text()).toBe('Red Arrow Diner');
-        done();
-      }, 0);
-    });
-
-    it('renders a address list item for each item returned from the api call', (done) => {
-      setTimeout(() => {
-        expect(wrapper.find('li.rest-address').text()).toBe('52 Shady Lane');
-        done();
-      }, 0);
-    });
-
-    it('renders a email list item for each item returned from the api call', (done) => {
-      setTimeout(() => {
-        expect(wrapper.find('li.rest-email').text()).toBe('foo@foo.com');
-        done();
-      }, 0);
-    });
-
-    it('renders a phone number list item for each item returned from the api call', (done) => {
-      setTimeout(() => {
-        expect(wrapper.find('h4').text()).toBe('603-867-5309');
-        done();
-      }, 0);
-    });
-
-    it('renders add a restaurant form', (done) => {
-      setTimeout(() => {
-        expect(wrapper.text()).toContain("Restaurant Form");
-        done();
-      }, 0);
-    });
-
-    it('renders add file dropzone component', (done) => {
-      setTimeout(() => {
-        expect(wrapper.text()).toContain("Dropped files");
-        done();
-      }, 0);
+    it('should render one RestaurantFormContainer', () => {
+      expect(wrapper.find(RestaurantFormContainer).length).toEqual(1);
     });
 
     it('successfully adds a restaurant', (done) => {
@@ -93,7 +67,6 @@ describe('CuisineShowContainer', () => {
         })
       }, 0)
     })
-
 
   });
 });

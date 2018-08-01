@@ -15,10 +15,8 @@ class CuisineShowContainer extends Component {
 
   }
 
-  updateRestaurantsList(updated) {
-    let rests = this.state.restaurantsArray
-    rests[updated["restaurant"].id] = updated["restaurant"]
-    this.setState({restaurantsArray: rests})
+  updateRestaurantsList(newRestaurant) {
+    this.setState({restaurantsArray: this.state.restaurantsArray.concat([newRestaurant.restaurant])})
   }
 
   componentDidMount() {
@@ -67,7 +65,7 @@ class CuisineShowContainer extends Component {
         <div>
           <RestaurantFormContainer
             cuisine_id={this.state.id}
-            updateParent={this.updateRestaurantsList}
+            updateRestaurantsList={this.updateRestaurantsList}
           />
         </div>
       </div>
