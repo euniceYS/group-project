@@ -23,9 +23,6 @@ describe('CuisineShowContainer', () => {
         <CuisineShowContainer
           params={{id: 1}}
         />
-        <RestaurantFormContainer
-          cuisine_id={1}
-        />
       </div>
     );
   });
@@ -70,7 +67,6 @@ describe('CuisineShowContainer', () => {
 
     it('renders add a restaurant form', (done) => {
       setTimeout(() => {
-        console.log(wrapper.debug())
         expect(wrapper.text()).toContain("Restaurant Form");
         done();
       }, 0);
@@ -78,11 +74,25 @@ describe('CuisineShowContainer', () => {
 
     it('renders add file dropzone component', (done) => {
       setTimeout(() => {
-        console.log(wrapper.debug())
         expect(wrapper.text()).toContain("Dropped files");
         done();
       }, 0);
     });
+
+    it('successfully adds a restaurant', (done) => {
+      fetchMock.post('/api/v1/cuisines', {
+        status: 201,
+        body:   {restaurant: { id: 1, name: "Red Arrow Diner", address: "52 Shady Lane", phone_number: "603-867-5309", email: "foo@foo.com", website: "www.foo.com" }}
+      });
+      setTimeout(() => {
+        let listItemCount = wrapper.find('.restaurant_list_tile').length
+        wrapper.find('.submit-button').simulate('submit')
+        setTimeout(() => {
+          expect(wrapper.find('.restaurant_list_tile').length).toEqual(listItemCount)
+          done()
+        })
+      }, 0)
+    })
 
 
   });

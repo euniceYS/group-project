@@ -77,7 +77,7 @@ class RestaurantFormContainer extends Component {
 
   handleFormSubmit(event) {
     event.preventDefault();
-
+    console.log("handleFormSubmit")
     if (this.formIsValid()) {
         let body = new FormData()
         body.append("name", this.state.name)
@@ -113,6 +113,7 @@ class RestaurantFormContainer extends Component {
       }
     }).then(response => {
       if (response.status == 422) {
+        console.log("code 422")
         return response.json()
       } else {
 
@@ -284,7 +285,7 @@ class RestaurantFormContainer extends Component {
                 </aside>
               </section>
 
-        <input type="submit" value="Add Restaurant" />
+        <input type="submit" className="submit-button button" value="Add Restaurant" />
       </form>
 
       </div>
