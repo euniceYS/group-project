@@ -8,16 +8,11 @@ ul{
   list-style-type: none;
 }
 
-div#app{
-  max-width: 1600px;
-  margin: 2% auto 10%;
-}
-
 h1{
   font-family: 'Gloria Hallelujah', cursive;
 }
 
-div.wrapper{
+.row{
   margin-bottom: 100px;
 }
 

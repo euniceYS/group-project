@@ -36,17 +36,11 @@ describe('RestaurantFormContainer', () => {
 
     it('Has a title Restaurant Form', (done) => {
       setTimeout(() => {
-        expect(wrapper.text()).toMatch('Restaurant Form');
+        expect(wrapper.text()).toMatch('Add New Restaurant');
         done();
       }, 0);
     });
 
-    it('renders add file dropzone component', (done) => {
-      setTimeout(() => {
-        expect(wrapper.text()).toContain("Dropped files");
-        done();
-      }, 0);
-    });
 
     it('successfully adds a restaurant', (done) => {
       fetchMock.post('/api/v1/restaurants', {
