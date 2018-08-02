@@ -1,9 +1,11 @@
 import React from 'react';
 import PhotoDisplay from './PhotoDisplay';
+import ReviewTile from './ReviewTile';
 
 const RestaurantTile = (props) => {
   let website;
   let email;
+  let reviewCollection;
 
   if (props.website != null) {
     website = <li className="rest-website">{props.website}</li>;
@@ -12,9 +14,26 @@ const RestaurantTile = (props) => {
   if (props.email != null) {
     email = <li className="rest-email">{props.email}</li>;
   }
+
+   if (props.reviews != null) {
+    reviewCollection = props.reviews.map(review => {
+      return(
+        <ReviewTile
+          key = {review.id}
+          id = {review.id}
+          user = {review.user}
+          created_date = {review.created_date}
+          rating = {review.rating}
+          title = {review.title}
+          body = {review.body}
+        />
+      );
+    });
+   }
+
   return (
-    <div>
-      <h1>{`${props.name}`}</h1>
+    <div className="rows columns">
+      <h1 className="page-title">{`${props.name}`}</h1>
       <div className="restaurant_info_box">
         <ul>
           <li className="rest-address">{props.address}</li>
@@ -28,6 +47,7 @@ const RestaurantTile = (props) => {
         cssClass={"restaurant_photos"}
         modelName={"restaurant"}
       />
+      {reviewCollection}
     </div>
   );
 };

@@ -41,8 +41,8 @@ class CuisinesIndexContainer extends Component {
     });
 
     return (
-      <div className="rows columns">
-        <h1>Effective Fork</h1>
+      <div className="rows columns text-center wrapper">
+        <h1 className="app-title">Effective Fork</h1>
           {cuisines}
       </div>
     );

@@ -16,7 +16,6 @@ export const App = (props) => {
         <Route path='/restaurants/:id' component={RestaurantShowContainer} />
 
         <Route path="restaurants/:restaurant_id/reviews/new" component={RestaurantReviewFormContainer}/>
-
       </Route>
     </Router>
   );

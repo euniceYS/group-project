@@ -10,10 +10,7 @@ class NavBar extends Component{
   render(){
     return(
       <div>
-        <div className="navbar">
-          <BackButton />
-          <Link to='/'> HOME </Link>
-        </div>
+        <BackButton />
         <div className='content'>
           {this.props.children}
         </div>

@@ -1,7 +1,9 @@
-import React from 'react'
+import React from 'react';
+
 const TextField = props => {
   return (
-    <label>{props.label}
+    <label>
+      {props.label}
       <input
         name={props.name}
         type='text'
@@ -10,6 +12,6 @@ const TextField = props => {
       />
     </label>
   );
-}
+};
 
 export default TextField;

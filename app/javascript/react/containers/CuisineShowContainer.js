@@ -11,12 +11,12 @@ class CuisineShowContainer extends Component {
       restaurantsArray:[],
       restaurantsUpdated: false
     };
-    this.updateRestaurantsList = this.updateRestaurantsList.bind(this)
+    this.updateRestaurantsList = this.updateRestaurantsList.bind(this);
 
   }
 
   updateRestaurantsList(newRestaurant) {
-    this.setState({restaurantsArray: this.state.restaurantsArray.concat([newRestaurant.restaurant])})
+    this.setState({restaurantsArray: this.state.restaurantsArray.concat([newRestaurant.restaurant])});
   }
 
   componentDidMount() {
@@ -59,17 +59,14 @@ class CuisineShowContainer extends Component {
     });
 
     return (
-      <div className="colums rows">
-        <h1>{this.state.name}</h1>
+      <div className="colums rows wrapper">
+        <h1 className="page-title">{this.state.name}</h1>
         {restaurants}
-        <div>
           <RestaurantFormContainer
             cuisine_id={this.state.id}
             updateRestaurantsList={this.updateRestaurantsList}
-          />
-        </div>
+            />
       </div>
-
     );
   }
 }

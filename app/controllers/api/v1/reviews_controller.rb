@@ -9,16 +9,16 @@ class Api::V1::ReviewsController < ApplicationController
 
   def create
     @review = Review.new
-    @restaurant = Restaurant.find(params[:review][:restaurant_id])
+    @restaurant = Restaurant.find(params[:restaurant_id])
     @review.restaurant = @restaurant
     @review.title = params[:review][:title]
     @review.body = params[:review][:body]
     @review.rating = params[:review][:rating]
     @review.user = current_user
+
     if @review.save
-      render status: 201, json: {
-        message: "SUCCESS"
-      }.to_json
+      render status: 201, json: @review
+
     else
       render status: 422, json: {
         message: "ERROR: UNPROCESSABLE ENTITY",

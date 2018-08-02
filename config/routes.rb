@@ -6,11 +6,11 @@ Rails.application.routes.draw do
     resources :restaurants, only: [:show, :new, :create]
   end
 
-  resources :restaurants, only: [:show]
+  resources :restaurants, only: [:show, :create]
   resources :profiles, only: [:show]
 
   resources :restaurants do
-    resources :reviews, only: [:new]
+    resources :reviews, only: [:new, :create]
   end
 
   namespace :api do

@@ -1,29 +1,29 @@
 import React from 'react';
-import PhotoTile from './PhotoTile'
+import PhotoTile from './PhotoTile';
 
 const PhotoDisplay = (props) => {
-  
-  let images = ""
+
+  let images = "";
   if (props.photos != null) {
     images = props.photos.map(photo => {
       return(
-        <PhotoTile 
+        <PhotoTile
           key={photo.id}
           photo_object={photo}
           cssClass={props.cssClass}
           size={"medium"}
         />
-      )
-    })
-  }   
-  
+      );
+    });
+  }
+
   return (
-      <div className={props.cssClass}>
-        <h3>Photos</h3>
-        <div>
-          {images}
+    <div className={props.cssClass}>
+      <h4>Photos</h4>
+      <div>
+        {images}
       </div>
-      </div>
+    </div>
   );
 };
 

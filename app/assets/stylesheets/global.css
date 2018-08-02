@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Oswald:400,700');
+
+body{
+  font-family: 'Oswald', sans-serif;
+}
+
+ul{
+  list-style-type: none;
+}
+
+div#app{
+  max-width: 1600px;
+  margin: 2% auto 10%;
+}
+
+h1{
+  font-family: 'Gloria Hallelujah', cursive;
+}
+
+div.wrapper{
+  margin-bottom: 100px;
+}
+
+.page-title {
+  font-size: 3.2em;
+  color: #A3CEC4;
+  width: 80%;
+  margin: 2% auto 3%;
+  border-bottom: 2px dashed;
+  text-align: center;
+  line-height: 1.2;
+  font-family: 'Gloria Hallelujah', cursive;
+}
+
+a:hover {
+  color: #5d5d5d;
+}
+
+.top-bar{
+  background: #e1e1e1;
+  height: auto;
+}
+
+.top-bar .name {
+  background: #a9e1d5;
+}
+
+.top-bar-section li:not(.has-form) a:not(.button){
+  background: #e1e1e1;
+  color: #666;
+}
+
+.name:hover, .top-bar-section li:not(.has-form) a:not(.button):hover{
+  background: #666;
+  color: #fff;
+}
+
+.nav-back-button{
+  color: #646464;
+  cursor: pointer;
+  padding-bottom: 5px;
+  display: inline-block;
+  padding: 5px 1px;
+  font-size: 1.1em;
+  margin: 5px 18px 10px;
+  border-bottom: 2px solid #fff0;
+}
+
+.nav-back-button:hover{
+  color: #454545;
+}

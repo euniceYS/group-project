@@ -1,29 +1,33 @@
-import React from 'react'
-import TextField from './TextField'
-import TextArea from './TextArea'
+import React from 'react';
+import TextField from './TextField';
+import TextArea from './TextArea';
+import DropDownInput from './DropDownInput';
 
 const RestaurantReviewForm = (props) => {
   return (
-    <form className="callout" onSubmit={props.handleFormSubmit}>
-    <TextField
-      label='Add Review Title'
-      name='title'
-      handlerFunction={props.handleTitleUpdate}
+    <form className="rows" onSubmit={props.handleFormSubmit}>
+      <TextField
+        label='Add Review Title'
+        name='title'
+        value={props.titleValue}
+        handlerFunction={props.handleTitleUpdate}
       />
-    <TextArea
-      content='Write a review'
+      <TextArea
+        content='Write a review'
         label='Add Review'
         name='body'
-        handlerFunction={props.handleBodyUpdate} 
+        value={props.bodyValue}
+        handlerFunction={props.handleBodyUpdate}
       />
-      <TextField
+      <DropDownInput
         label='Add Rating'
         name='ratings'
+        value={props.ratingValue}
         handlerFunction={props.handleRatingUpdate}
         />
-      <input type="submit" value="Add Review" />
-      </form>
-  )
-}
+      <input className="submit-button button" type="submit" value="Add Review" />
+    </form>
+  );
+};
 
 export default RestaurantReviewForm;
