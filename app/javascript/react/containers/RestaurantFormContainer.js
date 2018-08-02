@@ -171,7 +171,6 @@ class RestaurantFormContainer extends Component {
     }
   }
 
-
   render() {
 
     let errorDiv;
@@ -193,8 +192,8 @@ class RestaurantFormContainer extends Component {
     }
 
     return (
-      <div>
-        <h1>Restaurant Form</h1>
+      <div className="rows restaurant-form wrapper">
+        <h1 className=".page-title">Add New Restaurant</h1>
         {noticesDiv}
         {errorDiv}
 
@@ -251,11 +250,10 @@ class RestaurantFormContainer extends Component {
           <section>
             <div className="dropzone">
               <Dropzone onDrop={this.onDrop}>
-                <p>Try dropping some files here, or click to select files to upload.</p>
+                <p>Drop your files here, or click to select files to upload.</p>
               </Dropzone>
             </div>
             <aside>
-              <h3>Dropped files</h3>
               <ul>
                 {
                   this.state.file.map(f => <li key={f.name}>{f.name} - {f.size} bytes</li>)

@@ -69,3 +69,7 @@ gem 'fog-aws'
 gem 'fog'
 # added by developers to support MiniMagick
 gem 'mini_magick'
+
+#Yelp SEARCH
+gem "json"
+gem "http"

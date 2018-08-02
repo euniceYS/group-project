@@ -5,7 +5,7 @@ import ReviewTile from './ReviewTile';
 const RestaurantTile = (props) => {
   let website;
   let email;
-  let result;
+  let reviewCollection;
 
   if (props.website != null) {
     website = <li className="rest-website">{props.website}</li>;
@@ -16,7 +16,7 @@ const RestaurantTile = (props) => {
   }
 
    if (props.reviews != null) {
-    result = props.reviews.map(review => {
+    reviewCollection = props.reviews.map(review => {
       return(
         <ReviewTile
           key = {review.id}
@@ -33,7 +33,7 @@ const RestaurantTile = (props) => {
 
   return (
     <div className="rows columns">
-      <h1>{`${props.name}`}</h1>
+      <h1 className="page-title">{`${props.name}`}</h1>
       <div className="restaurant_info_box">
         <ul>
           <li className="rest-address">{props.address}</li>
@@ -41,13 +41,13 @@ const RestaurantTile = (props) => {
           {email}
           {website}
         </ul>
-        {result}
       </div>
       <PhotoDisplay
         photos={props.photos}
         cssClass={"restaurant_photos"}
         modelName={"restaurant"}
       />
+      {reviewCollection}
     </div>
   );
 };

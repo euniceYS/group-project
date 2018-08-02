@@ -59,17 +59,14 @@ class CuisineShowContainer extends Component {
     });
 
     return (
-      <div className="colums rows text-center">
-        <h1>{this.state.name}</h1>
+      <div className="colums rows wrapper">
+        <h1 className="page-title">{this.state.name}</h1>
         {restaurants}
-        <div>
           <RestaurantFormContainer
             cuisine_id={this.state.id}
             updateRestaurantsList={this.updateRestaurantsList}
-          />
-        </div>
+            />
       </div>
-
     );
   }
 }

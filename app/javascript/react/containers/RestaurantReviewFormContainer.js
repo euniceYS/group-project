@@ -117,8 +117,8 @@ class RestaurantReviewFormContainer extends Component {
     }
 
     return (
-      <div className="rows columns">
-      <h3>Restaurant Review Form</h3>
+      <div className="rows columns wrapper">
+      <h3 className="form-title">Restaurant Review Form</h3>
       {errorDiv}
       <RestaurantReviewForm
         titleValue = {this.state.reviewTitle}
