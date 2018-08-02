@@ -39,17 +39,6 @@ describe('CuisineShowContainer', () => {
       expect(wrapper.props().params.id).toEqual(1);
     });
 
-    it('should render one RestaurantListTiles given the mount setup', () => {
-      wrapper.setState({
-          id: 1,
-          name: 'Chinese',
-          restaurants: [{id: 1, name: "Red Arrow Diner", address: "52 Shady Lane", phone_number: "603-867-5309", email: "foo@foo.com", website: "www.foo.com" }]
-      });
-      setTimeout(() => {
-        expect(wrapper.find(RestaurantListTile)).toBePresent();
-      });
-    });
-
     it('Props should be passed down to RestaurantListTile and we can see the restaurant Name', () => {
       wrapper.setState({
           id: 1,
