@@ -1,7 +1,9 @@
+require 'pry'
 class RestaurantsController < ApplicationController
   before_action :authenticate_user!
 
   def show
+
   end
 
   def create
@@ -22,6 +24,7 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.new
     @cuisine = Cuisine.find(params[:cuisine_id])
   end
+
 
 private
 

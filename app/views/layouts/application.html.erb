@@ -48,7 +48,11 @@
   <%= yield %>
 
   <%= javascript_include_tag 'application' %>
-
+  <% if current_user %>
+    <%= javascript_tag do %>
+      window.currentUser = <%== serialized_current_user %>
+    <% end %>
+  <% end %>
   <%- if Rails.env.development? || Rails.env.test? -%>
   <%= javascript_tag do %>
   window.railsEnv = '<%= Rails.env %>'
