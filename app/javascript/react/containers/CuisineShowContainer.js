@@ -11,12 +11,12 @@ class CuisineShowContainer extends Component {
       restaurantsArray:[],
       restaurantsUpdated: false
     };
-    this.updateRestaurantsList = this.updateRestaurantsList.bind(this)
+    this.updateRestaurantsList = this.updateRestaurantsList.bind(this);
 
   }
 
   updateRestaurantsList(newRestaurant) {
-    this.setState({restaurantsArray: this.state.restaurantsArray.concat([newRestaurant.restaurant])})
+    this.setState({restaurantsArray: this.state.restaurantsArray.concat([newRestaurant.restaurant])});
   }
 
   componentDidMount() {

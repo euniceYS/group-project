@@ -31,8 +31,8 @@ class RestaurantShowContainer extends Component {
       });
     })
       .catch(error => {
-        console.error(`Error in fetch`)
-        console.error(error)
+        console.error(`Error in fetch`);
+        console.error(error);
       });
   }
 
