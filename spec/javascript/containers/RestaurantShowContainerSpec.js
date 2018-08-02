@@ -129,15 +129,12 @@ describe('RestaurantShowContainer', () => {
       }, 0);
     });
 
-<<<<<<< HEAD
     it('renders a div for restaurant photos', (done) => {
       setTimeout(() => {
         expect(wrapper.find('h4').text()).toBe('Photos');
         done();
       }, 0);
     });
-=======
->>>>>>> master
 
   });
 });
