@@ -59,7 +59,7 @@ describe('RestaurantShowContainer', () => {
       });
     });
 
-    it('should render one RestaurantTiles given the mount setup', () => {
+    it('should render one RestaurantTiles given the mount setup', (done) => {
       wrapper.setState({
         restaurant: {
            id: 1,
@@ -90,10 +90,11 @@ describe('RestaurantShowContainer', () => {
       });
       setTimeout(() => {
         expect(wrapper.find(RestaurantTile).length).toEqual(1);
+        done()
       }, 0);
     });
 
-    it('Props should be passed down to RestaurantTile and we can see the restaurant Name', () => {
+    it('Props should be passed down to RestaurantTile and we can see the restaurant Name', (done) => {
       wrapper.setState({
         restaurant: {
            id: 1,
@@ -124,10 +125,11 @@ describe('RestaurantShowContainer', () => {
       });
       setTimeout(() => {
         expect(wrapper.find(RestaurantTile).first().props().name).toEqual('Red Arrow Diner');
+        done()
       }, 0);
     });
 
-    fit('renders a div for restaurant photos', (done) => {
+    it('renders a div for restaurant photos', (done) => {
       setTimeout(() => {
         expect(wrapper.find('h4').text()).toBe('Photos');
         done();

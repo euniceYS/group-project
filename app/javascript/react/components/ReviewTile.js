@@ -1,6 +1,11 @@
 import React from 'react';
 
 const ReviewTile = (props) => {
+  let adminDeleteButton;
+
+  if(window.currentUser && window.currentUser.admin){
+    adminDeleteButton = <button data-review-id={props.id} className="button tiny" onClick={props.onDelete}>Delete</button>
+  }
 
   return(
     <div className="colums rows review">
@@ -11,6 +16,10 @@ const ReviewTile = (props) => {
       <li className="review-date">{props.created_date}</li>
       <li className="review-rating">Rating: {props.rating}</li>
       <hr />
+
+      <div>
+        {adminDeleteButton}
+      </div>
     </div>
   );
 };

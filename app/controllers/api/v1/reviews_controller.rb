@@ -1,7 +1,7 @@
 class Api::V1::ReviewsController < ApplicationController
   before_action :authenticate_user!
-
-  skip_before_action :verify_authenticity_token, :only => [:create]
+  before_action :authorize_destruction, :only => [:destroy]
+  skip_before_action :verify_authenticity_token, :only => [:create, :destroy]
 
   def index
     render json: Review.all
@@ -27,4 +27,22 @@ class Api::V1::ReviewsController < ApplicationController
     end
   end
 
+  def destroy
+      @review = Review.find(params[:id])
+      if @review.destroy
+        @reviews = @review.restaurant.reviews
+        render json: {reviews: @reviews}
+      else
+        @reviews = review.restaurant.reviews
+        render json: {reviews: @reviews}
+      end
+  end
+
+  protected
+  def authorize_destruction
+    if !current_user || !current_user.admin?
+      render status: 401
+      return false
+    end
+  end
 end
