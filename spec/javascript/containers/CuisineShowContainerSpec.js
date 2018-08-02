@@ -46,8 +46,6 @@ describe('CuisineShowContainer', () => {
           restaurants: [{id: 1, name: "Red Arrow Diner", address: "52 Shady Lane", phone_number: "603-867-5309", email: "foo@foo.com", website: "www.foo.com" }]
       });
       setTimeout(() => {
-        //console.log(wrapper.debug())
-        //expect(wrapper.find(RestaurantListTile).length).toEqual(1);
         expect(wrapper.find(RestaurantListTile)).toBePresent();
       });
     });

@@ -12,9 +12,9 @@ describe('RestaurantListTile', () => {
     phone_number : "123-345-6789",
     email : "ert@ert.com",
     website : "ert@gmail.com"
-  }
+  };
 
-  let wrapper
+  let wrapper;
 
   beforeEach(() => {
     wrapper = mount(
@@ -33,5 +33,4 @@ describe('RestaurantListTile', () => {
   it('Should have name of restaurant', () => {
     expect(wrapper.text()).toContain("Falafels");
   });
-
 });
