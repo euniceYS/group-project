@@ -8,16 +8,15 @@ ul{
   list-style-type: none;
 }
 
-div#app{
-  max-width: 1600px;
-  margin: 2% auto;
-}
-
 h1{
   font-family: 'Gloria Hallelujah', cursive;
 }
 
-div.colums h1, .page-title {
+.row{
+  margin-bottom: 100px;
+}
+
+.page-title {
   font-size: 3.2em;
   color: #A3CEC4;
   width: 80%;
@@ -25,6 +24,7 @@ div.colums h1, .page-title {
   border-bottom: 2px dashed;
   text-align: center;
   line-height: 1.2;
+  font-family: 'Gloria Hallelujah', cursive;
 }
 
 a:hover {

@@ -112,7 +112,7 @@ class RestaurantShowContainer extends Component {
 
   render() {
     return (
-      <div className="colums rows">
+      <div className="row">
         <RestaurantTile
           key={this.state.restaurant.id}
           id={this.state.restaurant.id}

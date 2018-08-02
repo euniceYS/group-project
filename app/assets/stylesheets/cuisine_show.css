@@ -4,12 +4,13 @@
   border: 1px solid #f6f6f6;
   box-shadow: 2px 2px 2px #cfcfcf;
   margin: 5% auto;
-  width: 80%;
   padding: 1%;
 }
 
 .restaurant_list_tile div{
   display: inline-block;
+  text-align: center;
+  padding: 1%;
 }
 
 .restaurant_list_tile:hover {

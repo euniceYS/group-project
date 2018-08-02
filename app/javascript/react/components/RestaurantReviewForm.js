@@ -5,7 +5,7 @@ import DropDownInput from './DropDownInput';
 
 const RestaurantReviewForm = (props) => {
   return (
-    <form className="colums rows callout" onSubmit={props.handleFormSubmit}>
+    <form className="row callout" onSubmit={props.handleFormSubmit}>
       <TextField
         label='Add Review Title'
         name='title'
@@ -25,7 +25,7 @@ const RestaurantReviewForm = (props) => {
         value={props.ratingValue}
         handlerFunction={props.handleRatingUpdate}
         />
-      <input className="submit-button" type="submit" value="Add Review" />
+      <input className="submit-button button" type="submit" value="Add Review" />
     </form>
   );
 };

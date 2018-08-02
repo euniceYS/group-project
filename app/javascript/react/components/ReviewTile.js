@@ -8,7 +8,7 @@ const ReviewTile = (props) => {
   }
 
   return(
-    <div className="colums rows review">
+    <div className="review">
       <hr />
       <h5 className="review-title">{props.title}</h5>
       {props.body}

@@ -5,7 +5,7 @@ const DropDownInput = props => {
     <label>
       {props.label}
       <select name={props.name} value={props.value || ''} onChange={props.handlerFunction}>
-        <option value='default'>-</option>
+        <option value='default'>- select -</option>
         <option value='5'>5</option>
         <option value='4'>4</option>
         <option value='3'>3</option>
