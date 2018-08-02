@@ -192,12 +192,12 @@ class RestaurantFormContainer extends Component {
     }
 
     return (
-      <div className="rows restaurant-form wrapper">
+      <div className="restaurant-form">
         <h1 className=".page-title">Add New Restaurant</h1>
         {noticesDiv}
         {errorDiv}
 
-        <form className="restaurant-form form callout" id="newRestaurantForm" onSubmit={this.handleFormSubmit}>
+        <form className="row restaurant-form form callout" id="newRestaurantForm" onSubmit={this.handleFormSubmit}>
           <TextField
             label='Name'
             name='name'

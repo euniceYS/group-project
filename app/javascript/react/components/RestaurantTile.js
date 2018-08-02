@@ -1,5 +1,4 @@
 import React from 'react';
-import PhotoDisplay from './PhotoDisplay';
 import ReviewTile from './ReviewTile';
 
 const RestaurantTile = (props) => {
@@ -32,7 +31,7 @@ const RestaurantTile = (props) => {
    }
 
   return (
-    <div className="rows columns">
+    <div className="row">
       <h1 className="page-title">{`${props.name}`}</h1>
       <div className="restaurant_info_box">
         <ul>
@@ -42,11 +41,6 @@ const RestaurantTile = (props) => {
           {website}
         </ul>
       </div>
-      <PhotoDisplay
-        photos={props.photos}
-        cssClass={"restaurant_photos"}
-        modelName={"restaurant"}
-      />
       {reviewCollection}
     </div>
   );

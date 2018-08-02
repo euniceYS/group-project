@@ -5,7 +5,7 @@ class YelpSearch
   API_HOST = "https://api.yelp.com"
   SEARCH_PATH = "/v3/businesses/search"
   BUSINESS_PATH = "/v3/businesses/"  # trailing / because we append the business id to the path
-  SEARCH_LIMIT = 2
+  SEARCH_LIMIT = 1
 
   attr_accessor :location
 
@@ -33,4 +33,15 @@ class YelpSearch
     response.parse
   end
 
+  def suggestion_from_yelp(term, location=@location)
+    url = "#{API_HOST}#{SEARCH_PATH}"
+    params = {
+      term: term,
+      location: location,
+      limit: 6
+    }
+
+    response = HTTP.auth("Bearer #{API_KEY}").get(url, params: params)
+    response.parse
+  end
 end

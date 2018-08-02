@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import RestaurantListTile from '../components/RestaurantListTile';
-import RestaurantFormContainer from '../containers/RestaurantFormContainer'
+import RestaurantFormContainer from '../containers/RestaurantFormContainer';
+import YelpRecommendation from '../components/YelpRecommendation';
 
 class CuisineShowContainer extends Component {
   constructor(props) {
@@ -9,7 +10,8 @@ class CuisineShowContainer extends Component {
       name: "",
       id: null,
       restaurantsArray:[],
-      restaurantsUpdated: false
+      restaurantsUpdated: false,
+      yelpRecommendation:[]
     };
     this.updateRestaurantsList = this.updateRestaurantsList.bind(this);
 
@@ -35,7 +37,8 @@ class CuisineShowContainer extends Component {
       this.setState({
         name: body.cuisine.name,
         id: body.cuisine.id,
-        restaurantsArray: body.cuisine.restaurants
+        restaurantsArray: body.cuisine.restaurants,
+        yelpRecommendation: body.cuisine.yelp_recommendation.businesses
       });
     })
     .catch(error => console.error(`Error in fetch: ${error}`));
@@ -54,18 +57,22 @@ class CuisineShowContainer extends Component {
           phone_number={restaurant.phone_number}
           email={restaurant.email}
           website={restaurant.website}
+          photo={restaurant.photo}
         />
       );
     });
 
     return (
-      <div className="colums rows wrapper">
+      <div className="row">
         <h1 className="page-title">{this.state.name}</h1>
         {restaurants}
-          <RestaurantFormContainer
-            cuisine_id={this.state.id}
-            updateRestaurantsList={this.updateRestaurantsList}
-            />
+        <YelpRecommendation
+        recommendations={this.state.yelpRecommendation}
+        />
+        <RestaurantFormContainer
+          cuisine_id={this.state.id}
+          updateRestaurantsList={this.updateRestaurantsList}
+          />
       </div>
     );
   }

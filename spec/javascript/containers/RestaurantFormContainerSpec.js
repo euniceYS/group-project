@@ -16,8 +16,8 @@ describe('RestaurantFormContainer', () => {
     };
 
     let updateRestaurantsList = () => {
-      return true
-    }
+      return true;
+    };
     wrapper = mount(
         <RestaurantFormContainer
           cuisine_id = {1}
@@ -26,24 +26,17 @@ describe('RestaurantFormContainer', () => {
     );
   });
 
-  afterEach(fetchMock.restore)
+  afterEach(fetchMock.restore);
 
   describe('Restaurant Form', () => {
 
     it('should have the specified initial state', () => {
       expect(wrapper.props().cuisine_id).toEqual(1);
-    })
+    });
 
     it('Has a title Restaurant Form', (done) => {
       setTimeout(() => {
-        expect(wrapper.text()).toMatch('Restaurant Form');
-        done();
-      }, 0);
-    });
-
-    it('renders add file dropzone component', (done) => {
-      setTimeout(() => {
-        expect(wrapper.text()).toContain("Dropped files");
+        expect(wrapper.text()).toMatch('Add New Restaurant');
         done();
       }, 0);
     });
@@ -62,15 +55,15 @@ describe('RestaurantFormContainer', () => {
           phoneNumber: '12345',
           email: 'try@trynt.com',
           website: 'http://www.html.com'
-        })
-      wrapper.find('.submit-button').simulate('submit')
+        });
+      wrapper.find('.submit-button').simulate('submit');
       setTimeout(() => {
         setTimeout(() => {
           expect(wrapper.text()).toMatch('Restaurant added successfully!');
-          done()
-        })
-      }, 0)
-    })
+          done();
+        });
+      }, 0);
+    });
 
     it('unsuccessfully adds a restaurant and doesnt fill out a required field (zip code)', (done) => {
       fetchMock.post('/api/v1/restaurants', {
@@ -86,15 +79,15 @@ describe('RestaurantFormContainer', () => {
           phone_number: '12345',
           email: 'try@trynt.com',
           website: 'http://www.html.com'
-        })
-      wrapper.find('.submit-button').simulate('submit')
+        });
+      wrapper.find('.submit-button').simulate('submit');
       setTimeout(() => {
         setTimeout(() => {
           expect(wrapper.text()).toMatch('You must enter a zip');
-          done()
-        })
-      }, 0)
-    })
+          done();
+        });
+      }, 0);
+    });
 
 
     it('handles server error 422 by rendering error in form', (done) => {
@@ -111,13 +104,12 @@ describe('RestaurantFormContainer', () => {
           phoneNumber: '12345',
           email: 'try@trynt.com',
           website: 'http://www.html.com'
-        })
-        wrapper.find('.submit-button').simulate('submit')
+        });
+        wrapper.find('.submit-button').simulate('submit');
         setTimeout(() => {
           expect(wrapper.text()).toMatch('Unable to save your restaurant!');
-          done()
-        }, 0)
-    })
-
+          done();
+        }, 0);
+    });
   });
-})
+});

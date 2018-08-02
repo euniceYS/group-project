@@ -9,7 +9,7 @@ class RestaurantPhotoUploader < CarrierWave::Uploader::Base
   else
     storage :fog
   end
-  
+
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
@@ -50,7 +50,11 @@ class RestaurantPhotoUploader < CarrierWave::Uploader::Base
   end
 
   version :large do
-    process resize_to_fit: [225, 225]
+    process resize_to_fit: [250, 250]
+  end
+
+  version :extra_large do
+    process resize_to_fit: [400, 600]
   end
 
 

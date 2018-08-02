@@ -15,6 +15,7 @@ describe('CuisineShowContainer', () => {
       cuisine: {
         id: 1,
         name: 'Chinese',
+        yelp_recommendation: {businesses:[]},
         restaurants: [{id: 1, name: "Red Arrow Diner", address: "52 Shady Lane", phone_number: "603-867-5309", email: "foo@foo.com", website: "www.foo.com" }]
       }
     };
@@ -36,17 +37,6 @@ describe('CuisineShowContainer', () => {
 
     it('should have the specified initial state', () => {
       expect(wrapper.props().params.id).toEqual(1);
-    })
-
-    it('should render one RestaurantListTiles given the mount setup', () => {
-      wrapper.setState({
-          id: 1,
-          name: 'Chinese',
-          restaurants: [{id: 1, name: "Red Arrow Diner", address: "52 Shady Lane", phone_number: "603-867-5309", email: "foo@foo.com", website: "www.foo.com" }]
-      })
-      setTimeout(() => {
-        expect(wrapper.find(RestaurantListTile).length).toEqual(1);
-        })
     });
 
     it('Props should be passed down to RestaurantListTile and we can see the restaurant Name', () => {
@@ -54,10 +44,10 @@ describe('CuisineShowContainer', () => {
           id: 1,
           name: 'Chinese',
           restaurants: [{id: 1, name: "Red Arrow Diner", address: "52 Shady Lane", phone_number: "603-867-5309", email: "foo@foo.com", website: "www.foo.com" }]
-      })
+      });
       setTimeout(() => {
         expect(wrapper.find(RestaurantListTile).first().props().name).toEqual('Red Arrow Diner');
-        })
+      });
     });
 
     it('should render one RestaurantFormContainer', () => {
@@ -70,14 +60,14 @@ describe('CuisineShowContainer', () => {
         body:   {restaurant: { id: 1, name: "Red Arrow Diner", address: "52 Shady Lane", phone_number: "603-867-5309", email: "foo@foo.com", website: "www.foo.com" }}
       });
       setTimeout(() => {
-        let listItemCount = wrapper.find('.restaurant_list_tile').length
-        wrapper.find('.submit-button').simulate('submit')
+        let listItemCount = wrapper.find('.restaurant_list_tile').length;
+        wrapper.find('.submit-button').simulate('submit');
         setTimeout(() => {
-          expect(wrapper.find('.restaurant_list_tile').length).toEqual(listItemCount)
-          done()
-        })
-      }, 0)
-    })
+          expect(wrapper.find('.restaurant_list_tile').length).toEqual(listItemCount);
+          done();
+        });
+      }, 0);
+    });
 
   });
 });

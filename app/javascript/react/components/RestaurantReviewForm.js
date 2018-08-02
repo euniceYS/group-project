@@ -5,7 +5,7 @@ import DropDownInput from './DropDownInput';
 
 const RestaurantReviewForm = (props) => {
   return (
-    <form className="rows" onSubmit={props.handleFormSubmit}>
+    <form className="row callout" onSubmit={props.handleFormSubmit}>
       <TextField
         label='Add Review Title'
         name='title'
