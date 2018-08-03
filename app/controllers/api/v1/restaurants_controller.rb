@@ -29,6 +29,7 @@ class Api::V1::RestaurantsController < ApplicationController
     restaurant_photo = RestaurantPhoto.new
     restaurant_photo.restaurant_photo = params[:photo]
     restaurant_photo.user = current_user
+    binding.pry
     restaurant_photo
   end
 
