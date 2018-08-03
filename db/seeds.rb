@@ -19,7 +19,8 @@ cuisine_data = [
 ]
 
 cuisine_data.each do |cuisine|
-  Cuisine.create(cuisine)
+  cuisine = Cuisine.create(cuisine)
+  cuisine.set_photo_url_from_yelp
 end
 
 restaurant_data = [
