@@ -1,6 +1,8 @@
 class Api::V1::CuisinesController < ApplicationController
   def index
-    render json: Cuisine.all
+    @cuisines = Cuisine.select(:id, :name, :photo_url)
+    result = {cuisines: @cuisines}
+    render :json => result
   end
 
   def show
