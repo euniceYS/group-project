@@ -21,7 +21,7 @@ feature 'user clicks link to view profile and sees their profile information and
     expect(page).to have_content("#{user.name}'s Profile")
     expect(page).to have_content("Username: #{user.name}")
     expect(page).to have_content("Email: #{user.email}")
-    expect(page).to have_css("img[src*='#{user.profile_photo.url(:thumb)}']")
+    expect(page).to have_css("img[src*='#{user.profile_photo.url(:large)}']")
 
   end
 

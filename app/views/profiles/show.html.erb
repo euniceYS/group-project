@@ -2,7 +2,7 @@
   <h1 class="page-title user-profile"> <%= @user.name %>'s Profile </h1>
   <div class="columns rows">
     <div class="profile-photo columns medium-4">
-      <%= image_tag(@user.profile_photo.url(:thumb).to_s) %>
+      <%= image_tag(@user.profile_photo.url(:large).to_s) %>
     </div>
     <div class="profile-info columns medium-8">
       <h4>Username: <%= @user.name %></h4>

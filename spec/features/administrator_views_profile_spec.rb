@@ -20,7 +20,7 @@ feature 'admin signs in', %Q{
     expect(page).to have_content("#{admin.name}'s Profile")
     expect(page).to have_content("Username: #{admin.name}")
     expect(page).to have_content("Email: #{admin.email}")
-    expect(page).to have_css("img[src*='#{admin.profile_photo.url(:thumb)}']")
+    expect(page).to have_css("img[src*='#{admin.profile_photo.url(:large)}']")
     expect(page).to have_content("admin")
   end
 end
