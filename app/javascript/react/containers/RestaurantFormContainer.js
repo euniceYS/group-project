@@ -192,12 +192,12 @@ class RestaurantFormContainer extends Component {
     }
 
     return (
-      <div className="restaurant-form">
-        <h1 className=".page-title">Add New Restaurant</h1>
+      <div className="columns small-7 restaurant-form">
+        <h2 className="form-title">Add New Restaurant</h2>
         {noticesDiv}
         {errorDiv}
 
-        <form className="row restaurant-form form callout" id="newRestaurantForm" onSubmit={this.handleFormSubmit}>
+        <form className="form" id="newRestaurantForm" onSubmit={this.handleFormSubmit}>
           <TextField
             label='Name'
             name='name'
@@ -262,7 +262,7 @@ class RestaurantFormContainer extends Component {
             </aside>
           </section>
 
-          <input type="submit" className="submit-button button" value="Add Restaurant" />
+          <input type="submit" className="submit-button" value="Add Restaurant" />
         </form>
     </div>
     );

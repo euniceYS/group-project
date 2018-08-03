@@ -1,20 +1,29 @@
 .restaurant_list_tile{
   background: #f6f6f6;
-  width: 80%;
   border: 1px solid #f6f6f6;
   box-shadow: 2px 2px 2px #cfcfcf;
-  margin: 5% auto;
+  margin: 2% auto;
   padding: 1%;
 }
 
 .restaurant_list_tile div{
-  display: inline-block;
   text-align: center;
   padding: 1%;
 }
 
+.restaurant_list_tile h2{
+  color: #a1d4c8;
+  text-shadow: 1px 1px 3px #888888;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
 .restaurant_list_tile:hover {
   opacity: 0.8;
+}
+
+.restaurant_list_tile:last-child {
+  margin-bottom: 8%;
 }
 
 .restaurant_list_tile img{

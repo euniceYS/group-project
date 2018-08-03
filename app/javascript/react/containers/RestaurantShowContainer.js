@@ -33,10 +33,10 @@ class RestaurantShowContainer extends Component {
         reviews: body.restaurant.reviews
       });
     })
-      .catch(error => {
-        console.error(`Error in fetch`);
-        console.error(error);
-      });
+    .catch(error => {
+      console.error(`Error in fetch`);
+      console.error(error);
+    });
   }
 
 

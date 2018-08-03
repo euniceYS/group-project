@@ -34,8 +34,8 @@ const RestaurantTile = (props) => {
    }
   return (
     <div className="row">
-      <h1 className="page-title">{`${props.name}`}</h1>
-      <div className="restaurant_info_box">
+      <h1 className="page-title">{props.name}</h1>
+      <div className="restaurant_info_box text-center">
         <ul>
           <li className="rest-address">{props.address}</li>
           <li className="rest-phone-number">{props.phone_number}</li>

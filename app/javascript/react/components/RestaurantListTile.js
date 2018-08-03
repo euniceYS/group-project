@@ -20,12 +20,13 @@ class RestaurantListTile extends Component{
 
     return (
       <Link to= {`/restaurants/${this.props.id}`}>
-        <div className="restaurant_list_tile">
-          <div className="medium-4">
+        <div className="columns restaurant_list_tile">
+          <div className="columns medium-4">
             <img src={this.props.photo} alt="" />
           </div>
-          <div className="medium-8">
+          <div className="columns medium-7">
             <h2>{this.props.name}</h2>
+            <hr />
             <ul>
               <li className="rest-address">{this.props.address}</li>
               {emailLi}
