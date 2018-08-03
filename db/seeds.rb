@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name:  'Star Wars' }, { name:  'Lord of the Rings' }])
 #   Character.createname:  'Luke', movie: movies.first)
 cuisine_data = [
+  {name:  'American'},
   {name:  'Chinese'},
   {name:  'Mexican'},
   {name:  'Italian'},
