@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
 
   before_action :configure_permitted_parameters, if: :devise_controller?
-
+  helper_method :serialized_current_user
   protected
 
   def configure_permitted_parameters
@@ -13,4 +13,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys:  [:name, :password, :password_confirmation, :current_password, :profile_photo, :profile_photo_cache, :remove_profile_photo] )
   end
 
+  def serialized_current_user
+    UserSerializer.new(current_user).to_json
+  end
 end

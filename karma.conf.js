@@ -79,7 +79,7 @@ module.exports = function(config) {
       // remove meaningless stack trace when tests do not pass
       maxLogLines: 1,
       // do not print information about tests that are passing
-      suppressPassed: true
+      // suppressPassed: true
     },
 
     // karma-coverage configuration

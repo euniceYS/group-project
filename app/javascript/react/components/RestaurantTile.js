@@ -14,22 +14,24 @@ const RestaurantTile = (props) => {
     email = <li className="rest-email">{props.email}</li>;
   }
 
+
    if (props.reviews != null) {
     reviewCollection = props.reviews.map(review => {
       return(
+        <div key = {review.id}>
         <ReviewTile
-          key = {review.id}
           id = {review.id}
           user = {review.user}
           created_date = {review.created_date}
           rating = {review.rating}
           title = {review.title}
           body = {review.body}
+          onDelete={props.onDelete}
         />
+        </div>
       );
     });
    }
-
   return (
     <div className="row">
       <h1 className="page-title">{props.name}</h1>

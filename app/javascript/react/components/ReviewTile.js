@@ -1,6 +1,11 @@
 import React from 'react';
 
 const ReviewTile = (props) => {
+  let adminDeleteButton;
+
+  if(window.currentUser && window.currentUser.admin){
+    adminDeleteButton = <button data-review-id={props.id} className="button tiny" onClick={props.onDelete}>Delete</button>
+  }
 
   return(
     <div className="review">

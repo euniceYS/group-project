@@ -36,7 +36,7 @@ class CuisinesIndexContainer extends Component {
           key={cuisine.id}
           id={cuisine.id}
           name={cuisine.name}
-          cuisineImg={cuisine.yelp_cuisine_tile_img}
+          cuisineImg={cuisine.photo_url}
         />
       );
     });
