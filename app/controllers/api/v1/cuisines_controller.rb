@@ -1,6 +1,7 @@
 class Api::V1::CuisinesController < ApplicationController
   def index
-    render json: Cuisine.all
+    cuisine = Cuisine.all
+    render json: cuisine.order(:name)
   end
 
   def show

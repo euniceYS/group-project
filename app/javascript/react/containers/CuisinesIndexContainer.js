@@ -42,7 +42,7 @@ class CuisinesIndexContainer extends Component {
     });
 
     return (
-      <div className="row columns text-center">
+      <div className="columns text-center">
         <h1 className="app-title">Effective Fork</h1>
           {cuisines}
       </div>

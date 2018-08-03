@@ -25,7 +25,7 @@ const RestaurantReviewForm = (props) => {
         value={props.ratingValue}
         handlerFunction={props.handleRatingUpdate}
         />
-      <input className="submit-button button" type="submit" value="Add Review" />
+      <input className="submit-button" type="submit" value="Add Review" />
     </form>
   );
 };

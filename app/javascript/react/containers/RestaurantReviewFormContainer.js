@@ -117,7 +117,7 @@ class RestaurantReviewFormContainer extends Component {
     }
 
     return (
-      <div className="">
+      <div>
       <h3 className="form-title">Restaurant Review Form</h3>
       {errorDiv}
       <RestaurantReviewForm

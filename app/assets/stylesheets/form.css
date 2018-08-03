@@ -3,20 +3,32 @@
   color: #5D2E46;
   line-height: 1.2;
   font-family: 'Gloria Hallelujah', cursive;
+  padding-bottom: 2%;
+  border-bottom: 2px dashed;
+  margin-bottom: 5%;
 }
 
 .submit-button{
   background: transparent;
-  border: 1px solid;
+  border: 2px solid;
   color: #5D2E46;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
+  padding: 2% 4%;
+  font-size: 1.0em;
+  margin: 1% 0;
 }
 
 .submit-button:hover{
   background: #5D2E46;
-  border: 1px solid;
   color: #fff;
+}
+
+.alert-box.alert {
+  background-color: #f0412400 !important;
+  border: 2px solid #de2d0f !important;
+  color: #3c3c3c !important;
+  border-radius: 0px !important;
 }
 
 /* restaurant form */
@@ -27,4 +39,6 @@
 
 .dropzone p{
   text-align: center;
+  margin-top: 27%;
+  padding: 1%;
 }

@@ -6,13 +6,10 @@ class CuisineSerializer < ActiveModel::Serializer
   def yelp_cuisine_tile_img
     yelp_search_img = YelpSearch.new("Boston")
     result = yelp_search_img.search(object.name)
-    if result["business"]
-      # cuisine_img = result["businesses"].try(:first).try(["image_url"])
-      cuisine_img = result["businesses"].try(:first)
+    cuisine_img = result["businesses"].try(:first)
       if cuisine_img
         cuisine_img = cuisine_img["image_url"]
       end
-    end
   end
 
   def yelp_recommendation

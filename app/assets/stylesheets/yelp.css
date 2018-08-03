@@ -1,0 +1,24 @@
+.yelp h2{
+  text-align: center;
+  color: #c2362f;
+  padding: 3%;
+  margin: 5% auto;
+  border: 6px double;
+}
+
+.yelp-recommend h3{
+  display: inline-block;
+}
+
+.yelp-recommend span{
+  font-family: 'Oswald', sans-serif;
+  color: #5a5a5a;
+  font-size: 1.6em;
+}
+
+.fa-yelp{
+  color: #C2362E;
+  font-size: 24px;
+  display: inline-block;
+  margin-left: 2%;
+}

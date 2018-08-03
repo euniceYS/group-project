@@ -1,0 +1,22 @@
+.review{
+  margin-bottom: 5%;
+}
+
+.review-username, .review-date, .review-rating{
+  display:inline-block;
+  color: #666;
+  margin-right: 2%;
+}
+
+.review-title{
+  font-size: 1.5rem;
+}
+
+.fa-user-astronaut{
+  font-size: 1.2em;
+  margin-right: 5px;
+}
+
+ul.review-info{
+  font-size: 0.9em;
+}

@@ -10,6 +10,6 @@
       <h4>Email: <%= @user.email %></h4>
     </div>
   </div>
-<div class="rows profile-page edit-profile-click">
-  <%= link_to 'Edit Profile',  edit_user_registration_path(current_user)%>
+<div class="rows columns edit-profile-click ">
+  <%= link_to 'Edit Profile', edit_user_registration_path(current_user), class: "submit-button"%>
 </div>
